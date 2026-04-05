@@ -179,7 +179,7 @@ autodream/
 
 ## Full package
 
-The hooks are free and open source. If you want the complete setup — agent prompts, pre-configured settings.json, and install walkthrough — it's available at [cederwave6.gumroad.com/l/rvuka](https://cederwave6.gumroad.com/l/rvuka).
+This repo includes 6 core hooks. The full 11-hook system (critic-evaluator, circuit-breaker, learn, microcompact, dream) plus agent prompts, pre-configured settings.json, and install walkthrough is available at [cederwave6.gumroad.com/l/rvuka](https://cederwave6.gumroad.com/l/rvuka).
 
 ---
 
