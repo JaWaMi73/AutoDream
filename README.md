@@ -137,7 +137,7 @@ See [INSTALL.md](INSTALL.md) for full setup. The short version:
 
 ```bash
 # 1. Clone
-git clone https://github.com/YOUR_USERNAME/autodream ~/.claude/autodream
+git clone https://github.com/JaWaMi73/AutoDream ~/.claude/autodream
 
 # 2. Copy hooks
 cp ~/.claude/autodream/hooks/*.cjs ~/.claude/hooks/
@@ -174,6 +174,12 @@ autodream/
   INSTALL.md              ← full setup guide
   README.md               ← this file
 ```
+
+---
+
+## Full package
+
+The hooks are free and open source. If you want the complete setup — agent prompts, pre-configured settings.json, and install walkthrough — it's available at [cederwave6.gumroad.com/l/rvuka](https://cederwave6.gumroad.com/l/rvuka).
 
 ---
 
