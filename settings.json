@@ -1,0 +1,73 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|WebFetch",
+        "hooks": [
+          { "type": "command", "command": "node YOUR_HOME/.claude/hooks/guardian.cjs" }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "node YOUR_HOME/.claude/hooks/critic-evaluator.cjs" },
+          { "type": "command", "command": "node YOUR_HOME/.claude/hooks/circuit-breaker.cjs" }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          { "type": "command", "command": "node YOUR_HOME/.claude/hooks/context.cjs" }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|WebSearch",
+        "hooks": [
+          { "type": "command", "command": "node YOUR_HOME/.claude/hooks/learn.cjs" }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          { "type": "command", "command": "node YOUR_HOME/.claude/hooks/verification-hook.cjs" }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "node YOUR_HOME/.claude/hooks/circuit-breaker.cjs" }
+        ]
+      },
+      {
+        "hooks": [
+          { "type": "command", "command": "node YOUR_HOME/.claude/hooks/microcompact.cjs" }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          { "type": "command", "command": "node YOUR_HOME/.claude/hooks/precompact-saver.cjs" }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "hooks": [
+          { "type": "command", "command": "node YOUR_HOME/.claude/hooks/reorient.cjs" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "node YOUR_HOME/.claude/hooks/memory-extractor.cjs" },
+          { "type": "command", "command": "node YOUR_HOME/.claude/hooks/dream.cjs" }
+        ]
+      }
+    ]
+  }
+}

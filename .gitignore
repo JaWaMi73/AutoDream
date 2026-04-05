@@ -1,0 +1,10 @@
+node_modules/
+*.docx
+*.pdf
+generate-arch-doc.cjs
+.claude/compaction-snapshots/
+.claude/session-logs/
+.claude/circuit-breaker/
+.claude/microcompact-state.json
+.claude/dream-trigger-state.json
+.claude/dream-due.flag
