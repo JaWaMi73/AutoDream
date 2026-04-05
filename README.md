@@ -1,6 +1,6 @@
 # AutoDream
 
-> The most complete public infrastructure for Claude Code — built around the same architecture Anthropic uses internally.
+> The most complete public hook system for Claude Code — persistent memory, safety guards, and AFK mode.
 
 AutoDream is a production hook system that gives Claude Code three operating modes: **active** (hooks augment every action), **AFK** (agents work while you're away), and **maintenance** (memory cleans itself overnight). Zero dead time.
 
@@ -87,7 +87,7 @@ No existing tool solves all three problems together. AutoDream does — with a 3
 
 | Agent | Schedule | What it does |
 |---|---|---|
-| `kairos-heartbeat` | Every 15 min | Checks dream flags, git health, dead memory links, signal backlog |
+| `autodream-heartbeat` | Every 15 min | Checks dream flags, git health, dead memory links, signal backlog |
 | `memory-consolidation-nightly` | 3:17 AM daily | Full memory audit, dedup, signal grep, stale entry pruning |
 | `afk-worker` | Every 30 min | Works tasks from `~/.claude/afk-queue.md`, writes report to `~/.claude/afk-report.md` |
 | `dream-auditor` | On demand | Runs full test suite, syntax checks all hooks, verifies wiring |
@@ -166,7 +166,7 @@ Done. All hooks fire automatically from that point.
 
 ```
 autodream/
-  hooks/                  ← 11 production hooks
+  hooks/                  ← 6 core hooks (free)
   agents/                 ← 5 scheduled agent prompts
   settings.json           ← ready-to-merge settings block
   INSTALL.md              ← full setup guide
