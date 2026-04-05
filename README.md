@@ -10,7 +10,7 @@ AutoDream is a production hook system that gives Claude Code three operating mod
 
 Claude Code has a memory problem. Every session starts cold. `/compact` destroys context. Dangerous commands run without warning. Learnings evaporate.
 
-In March 2026, a 512K-line Anthropic source leak revealed their internal solution: **KAIROS** — a 3-layer memory system, autonomous background agents, and proactive context management. It's unreleased. This repo is the public implementation of those patterns.
+No existing tool solves all three problems together. AutoDream does — with a 3-layer memory system, autonomous background agents, and proactive context management built entirely on Claude Code's public hook API.
 
 ---
 
@@ -97,7 +97,7 @@ In March 2026, a 512K-line Anthropic source leak revealed their internal solutio
 
 ## Memory architecture
 
-Three layers, mirroring the KAIROS design:
+Three layers:
 
 ```
 ~/.claude/
@@ -114,20 +114,18 @@ Three layers, mirroring the KAIROS design:
 
 ---
 
-## vs KAIROS (Anthropic internal)
+## Feature coverage
 
-| Feature | KAIROS | Claude Dream |
-|---|---|---|
-| 3-layer memory | ✅ | ✅ |
-| Proactive context injection | ✅ | ✅ |
-| Pre/post compaction hooks | ✅ | ✅ |
-| Danger scoring | ✅ | ✅ |
-| Background heartbeat | ✅ | ✅ |
-| AFK task queue | ✅ | ✅ |
-| Autonomous code writing | ✅ | ⚠️ (queue-based, not inferred) |
-| Generative background reasoning | ✅ | ❌ (needs API) |
-
-Everything except the last two is implemented. The inference gap closes when Anthropic ships KAIROS publicly — this system is designed to be a drop-in wrapper around it when that happens.
+| Feature | AutoDream |
+|---|---|
+| 3-layer memory | ✅ |
+| Proactive context injection | ✅ |
+| Pre/post compaction hooks | ✅ |
+| Danger scoring | ✅ |
+| Background heartbeat | ✅ |
+| AFK task queue | ✅ |
+| Autonomous code writing | ⚠️ (queue-based) |
+| Generative background reasoning | ❌ (needs API) |
 
 ---
 
@@ -189,4 +187,4 @@ MIT — use it, fork it, build on it.
 
 ---
 
-*AutoDream — built by reverse-engineering the KAIROS architecture from the Anthropic source leak (2026-03-31) and reimplementing it as public Claude Code hooks.*
+*AutoDream — a production hook system for Claude Code built around 3-layer memory, autonomous agents, and proactive context management.*
